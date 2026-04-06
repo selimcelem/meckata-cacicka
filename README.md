@@ -173,7 +173,7 @@ Designed to run at ~EUR0/month using AWS Free Tier and Resend free tier (100 ema
 
 ## Developer
 
-**Selim Celem** -- Career switcher from BIM Engineering to Cloud Engineering
+**Selim Celem**
 
 - GitHub: [selimcelem](https://github.com/selimcelem)
-- LinkedIn: [selimcelem](https://www.linkedin.com/in/selimcelem)
+- LinkedIn: [selimcelem](https://www.linkedin.com/in/selim-celem)
