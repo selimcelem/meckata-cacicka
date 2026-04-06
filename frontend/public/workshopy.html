@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshopy - Meckatá Cacička</title>
+  <meta name="description" content="Rezervujte si keramický workshop v dílně Meckatá Cacička.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">Meckatá Cacička</a>
+      <button class="hamburger" aria-label="Menu">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+      <div class="navbar__menu">
+        <div class="navbar__links">
+          <a href="index.html" data-lang-cs="Domů" data-lang-en="Home">Domů</a>
+          <a href="galerie.html" data-lang-cs="Galerie" data-lang-en="Gallery">Galerie</a>
+          <a href="workshopy.html" class="active" data-lang-cs="Workshopy" data-lang-en="Workshops">Workshopy</a>
+          <a href="o-nas.html" data-lang-cs="O nás" data-lang-en="About">O nás</a>
+          <a href="kontakt.html" data-lang-cs="Kontakt" data-lang-en="Contact">Kontakt</a>
+        </div>
+        <div class="lang-toggle">
+          <button class="lang-toggle__btn active" data-lang="cs">CZ</button>
+          <button class="lang-toggle__btn" data-lang="en">EN</button>
+        </div>
+      </div>
+      <div class="mobile-overlay"></div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 data-lang-cs="Workshopy" data-lang-en="Workshops">Workshopy</h1>
+      <p data-lang-cs="Vyberte si termín a přijďte si tvořit" data-lang-en="Choose a date and come create with us">Vyberte si termín a přijďte si tvořit</p>
+    </div>
+  </section>
+
+  <!-- Workshop Info -->
+  <section class="workshop-info section">
+    <div class="container">
+      <div class="workshop-info__grid">
+        <div class="workshop-info__text fade-in-left">
+          <h2 data-lang-cs="Keramický workshop" data-lang-en="Pottery Workshop">Keramický workshop</h2>
+          <p data-lang-cs="Na našich workshopech vás provedeme celým procesem tvorby keramiky. Naučíte se základy práce s hlínou, modelování, točení na kruhu i glazování. Vše v příjemné a uvolněné atmosféře." data-lang-en="In our workshops, we guide you through the entire process of creating pottery. You will learn the basics of working with clay, modeling, wheel throwing, and glazing. All in a pleasant and relaxed atmosphere.">Na našich workshopech vás provedeme celým procesem tvorby keramiky. Naučíte se základy práce s hlínou, modelování, točení na kruhu i glazování. Vše v příjemné a uvolněné atmosféře.</p>
+          <p data-lang-cs="Workshop je vhodný pro úplné začátečníky i pokročilé. Všechny materiály a nástroje jsou v ceně. Svůj výtvor si po vypálení odnesete domů." data-lang-en="The workshop is suitable for complete beginners and advanced participants alike. All materials and tools are included. You take your creation home after firing.">Workshop je vhodný pro úplné začátečníky i pokročilé. Všechny materiály a nástroje jsou v ceně. Svůj výtvor si po vypálení odnesete domů.</p>
+        </div>
+        <div class="workshop-info__details fade-in-right">
+          <h3 data-lang-cs="Podrobnosti" data-lang-en="Details">Podrobnosti</h3>
+          <div class="workshop-detail-item">
+            <div class="workshop-detail-item__icon">&#128337;</div>
+            <div class="workshop-detail-item__text">
+              <strong data-lang-cs="Délka" data-lang-en="Duration">Délka</strong>
+              <span data-lang-cs="cca 2 hodiny" data-lang-en="approx. 2 hours">cca 2 hodiny</span>
+            </div>
+          </div>
+          <div class="workshop-detail-item">
+            <div class="workshop-detail-item__icon">&#128101;</div>
+            <div class="workshop-detail-item__text">
+              <strong data-lang-cs="Velikost skupiny" data-lang-en="Group size">Velikost skupiny</strong>
+              <span data-lang-cs="max. 8 účastníků" data-lang-en="max. 8 participants">max. 8 účastníků</span>
+            </div>
+          </div>
+          <div class="workshop-detail-item">
+            <div class="workshop-detail-item__icon">&#127912;</div>
+            <div class="workshop-detail-item__text">
+              <strong data-lang-cs="Materiály" data-lang-en="Materials">Materiály</strong>
+              <span data-lang-cs="Vše v ceně workshopu" data-lang-en="Everything included in price">Vše v ceně workshopu</span>
+            </div>
+          </div>
+          <div class="workshop-detail-item">
+            <div class="workshop-detail-item__icon">&#127968;</div>
+            <div class="workshop-detail-item__text">
+              <strong data-lang-cs="Úroveň" data-lang-en="Level">Úroveň</strong>
+              <span data-lang-cs="Začátečníci i pokročilí" data-lang-en="Beginners & advanced">Začátečníci i pokročilí</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Calendar -->
+  <section class="booking section section--alt">
+    <div class="container">
+      <div class="booking__wrapper">
+        <div class="section-header fade-in">
+          <h2 data-lang-cs="Rezervace" data-lang-en="Book a Session">Rezervace</h2>
+          <p data-lang-cs="Vyberte si datum a čas, který vám vyhovuje" data-lang-en="Choose a date and time that works for you">Vyberte si datum a čas, který vám vyhovuje</p>
+        </div>
+
+        <div class="calendar fade-in" id="booking-calendar">
+          <div class="calendar__header">
+            <button class="calendar__nav-btn" id="cal-prev" aria-label="Previous month">&#10094;</button>
+            <div class="calendar__title" id="cal-title"></div>
+            <button class="calendar__nav-btn" id="cal-next" aria-label="Next month">&#10095;</button>
+          </div>
+          <div class="calendar__weekdays" id="cal-weekdays"></div>
+          <div class="calendar__days" id="cal-days"></div>
+
+          <!-- Time Slots -->
+          <div class="timeslots" id="timeslots-container" style="display: none;">
+            <h4 class="timeslots__title"></h4>
+            <div class="timeslots__grid"></div>
+          </div>
+
+          <!-- Booking Form -->
+          <div id="booking-form-container" style="display: none;">
+            <form class="booking-form" id="booking-form">
+              <h4 class="booking-form__title" data-lang-cs="Vaše údaje" data-lang-en="Your Details">Vaše údaje</h4>
+              <div class="booking-form__summary"></div>
+
+              <div class="form-group">
+                <label for="booking-name" data-lang-cs="Jméno a příjmení" data-lang-en="Full Name">Jméno a příjmení</label>
+                <input type="text" id="booking-name" name="name" required
+                  data-placeholder-cs="Např. Jana Nováková"
+                  data-placeholder-en="e.g. Jana Novakova"
+                  placeholder="Např. Jana Nováková">
+                <div class="error-message"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="booking-email" data-lang-cs="E-mail" data-lang-en="Email">E-mail</label>
+                <input type="email" id="booking-email" name="email" required
+                  data-placeholder-cs="vas@email.cz"
+                  data-placeholder-en="your@email.com"
+                  placeholder="vas@email.cz">
+                <div class="error-message"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="booking-phone" data-lang-cs="Telefon" data-lang-en="Phone">Telefon</label>
+                <input type="tel" id="booking-phone" name="phone" required
+                  data-placeholder-cs="+420 123 456 789"
+                  data-placeholder-en="+420 123 456 789"
+                  placeholder="+420 123 456 789">
+                <div class="error-message"></div>
+              </div>
+
+              <button type="submit" class="btn btn--primary" data-lang-cs="Odeslat rezervaci" data-lang-en="Submit Booking">Odeslat rezervaci</button>
+            </form>
+            <div id="booking-message" class="booking-message"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">Meckatá Cacička</div>
+        <div class="footer__links">
+          <a href="index.html" data-lang-cs="Domů" data-lang-en="Home">Domů</a>
+          <a href="galerie.html" data-lang-cs="Galerie" data-lang-en="Gallery">Galerie</a>
+          <a href="workshopy.html" data-lang-cs="Workshopy" data-lang-en="Workshops">Workshopy</a>
+          <a href="o-nas.html" data-lang-cs="O nás" data-lang-en="About">O nás</a>
+          <a href="kontakt.html" data-lang-cs="Kontakt" data-lang-en="Contact">Kontakt</a>
+        </div>
+        <div class="footer__social">
+          <a href="https://www.facebook.com/share/1GLigWv4C5/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Meckatá Cacička. <span data-lang-cs="Všechna práva vyhrazena." data-lang-en="All rights reserved.">Všechna práva vyhrazena.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

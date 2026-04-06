@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meckatá Cacička - Keramická dílna</title>
+  <meta name="description" content="Meckatá Cacička - keramická dílna. Místo, kde se po práci zastavíte a znovu najdete své vnitřní dítě.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">Meckatá Cacička</a>
+      <button class="hamburger" aria-label="Menu">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+      <div class="navbar__menu">
+        <div class="navbar__links">
+          <a href="index.html" class="active" data-lang-cs="Domů" data-lang-en="Home">Domů</a>
+          <a href="galerie.html" data-lang-cs="Galerie" data-lang-en="Gallery">Galerie</a>
+          <a href="workshopy.html" data-lang-cs="Workshopy" data-lang-en="Workshops">Workshopy</a>
+          <a href="o-nas.html" data-lang-cs="O nás" data-lang-en="About">O nás</a>
+          <a href="kontakt.html" data-lang-cs="Kontakt" data-lang-en="Contact">Kontakt</a>
+        </div>
+        <div class="lang-toggle">
+          <button class="lang-toggle__btn active" data-lang="cs">CZ</button>
+          <button class="lang-toggle__btn" data-lang="en">EN</button>
+        </div>
+      </div>
+      <div class="mobile-overlay"></div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__bg-shapes">
+      <div class="hero__shape hero__shape--1"></div>
+      <div class="hero__shape hero__shape--2"></div>
+      <div class="hero__shape hero__shape--3"></div>
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__title">Meckatá Cacička</h1>
+      <p class="hero__tagline" data-lang-cs="Místo, kde se po práci zastavíte a znovu najdete své vnitřní dítě" data-lang-en="A place to pause after work and reconnect with your inner child">Místo, kde se po práci zastavíte a znovu najdete své vnitřní dítě</p>
+      <div class="hero__buttons">
+        <a href="workshopy.html" class="btn btn--primary" data-lang-cs="Rezervovat workshop" data-lang-en="Book a Workshop">Rezervovat workshop</a>
+        <a href="o-nas.html" class="btn btn--secondary" data-lang-cs="Více o nás" data-lang-en="About Us">Více o nás</a>
+      </div>
+    </div>
+    <div class="hero__scroll-hint">
+      <span data-lang-cs="Sjeďte dolů" data-lang-en="Scroll down">Sjeďte dolů</span>
+      <div class="hero__scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="intro section">
+    <div class="container">
+      <div class="intro__grid">
+        <div class="intro__text fade-in-left">
+          <h2 data-lang-cs="Vítejte v naší dílně" data-lang-en="Welcome to Our Workshop">Vítejte v naší dílně</h2>
+          <p data-lang-cs="Meckatá Cacička je keramická dílna, kde vás naučíme tvořit z hlíny. Ať už jste úplný začátečník nebo zkušený keramik, najdete u nás prostor pro kreativitu a odpočinek." data-lang-en="Meckatá Cacička is a pottery workshop where we teach you to create with clay. Whether you are a complete beginner or an experienced potter, you will find a space for creativity and relaxation.">Meckatá Cacička je keramická dílna, kde vás naučíme tvořit z hlíny. Ať už jste úplný začátečník nebo zkušený keramik, najdete u nás prostor pro kreativitu a odpočinek.</p>
+          <p data-lang-cs="Přijďte si odpočinout od každodenního shonu. Zapomeňte na e-maily a deadliny. Tady se zastavíte, ponoříte ruce do hlíny a znovu se spojíte se svým vnitřním dítětem." data-lang-en="Come and take a break from the daily rush. Forget about emails and deadlines. Here you can pause, immerse your hands in clay, and reconnect with your inner child.">Přijďte si odpočinout od každodenního shonu. Zapomeňte na e-maily a deadliny. Tady se zastavíte, ponoříte ruce do hlíny a znovu se spojíte se svým vnitřním dítětem.</p>
+          <a href="workshopy.html" class="btn btn--sage" style="margin-top: 1rem;" data-lang-cs="Prohlédnout workshopy" data-lang-en="View Workshops">Prohlédnout workshopy</a>
+        </div>
+        <div class="intro__image-placeholder fade-in-right" data-lang-cs="Keramická dílna" data-lang-en="Pottery Workshop">Keramická dílna</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 data-lang-cs="Proč k nám?" data-lang-en="Why Choose Us?">Proč k nám?</h2>
+        <p data-lang-cs="Tři důvody, proč si zamilujete naše workshopy" data-lang-en="Three reasons you will love our workshops">Tři důvody, proč si zamilujete naše workshopy</p>
+      </div>
+      <div class="features__grid">
+        <div class="feature-card fade-in">
+          <div class="feature-card__icon feature-card__icon--terracotta">&#127843;</div>
+          <h3 data-lang-cs="Tvořivost" data-lang-en="Creativity">Tvořivost</h3>
+          <p data-lang-cs="Objevte radost z tvoření vlastníma rukama. Každý kousek je originál, přesně jako vy." data-lang-en="Discover the joy of creating with your own hands. Every piece is unique, just like you.">Objevte radost z tvoření vlastníma rukama. Každý kousek je originál, přesně jako vy.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-card__icon feature-card__icon--sage">&#127807;</div>
+          <h3 data-lang-cs="Odpočinek" data-lang-en="Relaxation">Odpočinek</h3>
+          <p data-lang-cs="Keramika je meditace. Zpomalte, soustřeďte se na přítomný okamžik a nechte starosti za dveřmi." data-lang-en="Pottery is meditation. Slow down, focus on the present moment, and leave your worries at the door.">Keramika je meditace. Zpomalte, soustřeďte se na přítomný okamžik a nechte starosti za dveřmi.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-card__icon feature-card__icon--clay">&#9749;</div>
+          <h3 data-lang-cs="Komunita" data-lang-en="Community">Komunita</h3>
+          <p data-lang-cs="Poznejte stejně smýšlející lidi. Sdílejte radost z tvoření a užijte si příjemnou atmosféru." data-lang-en="Meet like-minded people. Share the joy of creating and enjoy a warm atmosphere.">Poznejte stejně smýšlející lidi. Sdílejte radost z tvoření a užijte si příjemnou atmosféru.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">Meckatá Cacička</div>
+        <div class="footer__links">
+          <a href="index.html" data-lang-cs="Domů" data-lang-en="Home">Domů</a>
+          <a href="galerie.html" data-lang-cs="Galerie" data-lang-en="Gallery">Galerie</a>
+          <a href="workshopy.html" data-lang-cs="Workshopy" data-lang-en="Workshops">Workshopy</a>
+          <a href="o-nas.html" data-lang-cs="O nás" data-lang-en="About">O nás</a>
+          <a href="kontakt.html" data-lang-cs="Kontakt" data-lang-en="Contact">Kontakt</a>
+        </div>
+        <div class="footer__social">
+          <a href="https://www.facebook.com/share/1GLigWv4C5/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Meckatá Cacička. <span data-lang-cs="Všechna práva vyhrazena." data-lang-en="All rights reserved.">Všechna práva vyhrazena.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

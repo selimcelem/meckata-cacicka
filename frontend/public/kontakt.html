@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt - Meckatá Cacička</title>
+  <meta name="description" content="Kontaktujte keramickou dílnu Meckatá Cacička.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">Meckatá Cacička</a>
+      <button class="hamburger" aria-label="Menu">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+      <div class="navbar__menu">
+        <div class="navbar__links">
+          <a href="index.html" data-lang-cs="Domů" data-lang-en="Home">Domů</a>
+          <a href="galerie.html" data-lang-cs="Galerie" data-lang-en="Gallery">Galerie</a>
+          <a href="workshopy.html" data-lang-cs="Workshopy" data-lang-en="Workshops">Workshopy</a>
+          <a href="o-nas.html" data-lang-cs="O nás" data-lang-en="About">O nás</a>
+          <a href="kontakt.html" class="active" data-lang-cs="Kontakt" data-lang-en="Contact">Kontakt</a>
+        </div>
+        <div class="lang-toggle">
+          <button class="lang-toggle__btn active" data-lang="cs">CZ</button>
+          <button class="lang-toggle__btn" data-lang="en">EN</button>
+        </div>
+      </div>
+      <div class="mobile-overlay"></div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 data-lang-cs="Kontakt" data-lang-en="Contact">Kontakt</h1>
+      <p data-lang-cs="Ozvěte se nám, rádi vám odpovíme" data-lang-en="Get in touch, we would love to hear from you">Ozvěte se nám, rádi vám odpovíme</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact section">
+    <div class="container">
+      <div class="contact__grid">
+        <div class="contact__info fade-in-left">
+          <h2 data-lang-cs="Spojte se s námi" data-lang-en="Get in Touch">Spojte se s námi</h2>
+          <p data-lang-cs="Máte dotaz ohledně workshopů, chcete uspořádat soukromou akci nebo se jen chcete zeptat? Neváhejte nás kontaktovat." data-lang-en="Have a question about workshops, want to organize a private event, or just want to ask something? Do not hesitate to contact us.">Máte dotaz ohledně workshopů, chcete uspořádat soukromou akci nebo se jen chcete zeptat? Neváhejte nás kontaktovat.</p>
+
+          <a href="https://www.facebook.com/share/1GLigWv4C5/" target="_blank" rel="noopener noreferrer" class="contact__link">
+            <div class="contact__link-icon">&#128266;</div>
+            <span class="contact__link-text">Facebook</span>
+          </a>
+
+          <a href="mailto:info@meckatacacicka.cz" class="contact__link">
+            <div class="contact__link-icon">&#9993;</div>
+            <span class="contact__link-text">info@meckatacacicka.cz</span>
+          </a>
+        </div>
+
+        <div class="contact__form fade-in-right">
+          <h3 data-lang-cs="Napište nám" data-lang-en="Send Us a Message">Napište nám</h3>
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="contact-name" data-lang-cs="Jméno" data-lang-en="Name">Jméno</label>
+              <input type="text" id="contact-name" name="name" required
+                data-placeholder-cs="Vaše jméno"
+                data-placeholder-en="Your name"
+                placeholder="Vaše jméno">
+              <div class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email" data-lang-cs="E-mail" data-lang-en="Email">E-mail</label>
+              <input type="email" id="contact-email" name="email" required
+                data-placeholder-cs="vas@email.cz"
+                data-placeholder-en="your@email.com"
+                placeholder="vas@email.cz">
+              <div class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message-input" data-lang-cs="Zpráva" data-lang-en="Message">Zpráva</label>
+              <textarea id="contact-message-input" name="message" rows="5" required
+                data-placeholder-cs="Vaše zpráva..."
+                data-placeholder-en="Your message..."
+                placeholder="Vaše zpráva..."></textarea>
+              <div class="error-message"></div>
+            </div>
+
+            <button type="submit" class="btn btn--primary" data-lang-cs="Odeslat zprávu" data-lang-en="Send Message">Odeslat zprávu</button>
+          </form>
+          <div id="contact-message" class="contact-message"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">Meckatá Cacička</div>
+        <div class="footer__links">
+          <a href="index.html" data-lang-cs="Domů" data-lang-en="Home">Domů</a>
+          <a href="galerie.html" data-lang-cs="Galerie" data-lang-en="Gallery">Galerie</a>
+          <a href="workshopy.html" data-lang-cs="Workshopy" data-lang-en="Workshops">Workshopy</a>
+          <a href="o-nas.html" data-lang-cs="O nás" data-lang-en="About">O nás</a>
+          <a href="kontakt.html" data-lang-cs="Kontakt" data-lang-en="Contact">Kontakt</a>
+        </div>
+        <div class="footer__social">
+          <a href="https://www.facebook.com/share/1GLigWv4C5/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Meckatá Cacička. <span data-lang-cs="Všechna práva vyhrazena." data-lang-en="All rights reserved.">Všechna práva vyhrazena.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

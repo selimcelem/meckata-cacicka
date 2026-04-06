@@ -1,0 +1,34 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+*.tfplan
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.lock.hcl
+
+# Lambda
+node_modules/
+lambda-booking.zip
+
+# Secrets
+.env
+.env.*
+*.pem
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Claude Code
+CLAUDE.md
+TASKS.md
+PROJECT_BRIEF.md
