@@ -4,7 +4,7 @@
 
 Meckata Cacicka is a production-grade website and booking system for a Czech pottery workshop. It demonstrates end-to-end cloud engineering: infrastructure as code, serverless compute, transactional email workflows, and automated CI/CD -- all within AWS Free Tier constraints.
 
-The workshop is a real business run by Terka, offering pottery sessions for people seeking a moment of calm after work and wanting to reconnect with their inner child.
+The workshop is a real business offering pottery sessions for people seeking a moment of calm after work and wanting to reconnect with their inner child.
 
 ## My Role
 
@@ -28,7 +28,7 @@ SES requires domain verification, sandbox exit requests, and careful bounce/comp
 
 ### Why a Manual Booking Flow?
 
-Terka wants personal control over every booking. An auto-confirm system would remove the human touch that defines her workshop. The accept/reschedule/decline flow lets her manage her schedule while the system handles all the email logistics automatically.
+The workshop owner wants personal control over every booking. An auto-confirm system would remove the human touch that defines the workshop. The accept/reschedule/decline flow lets the owner manage their schedule while the system handles all the email logistics automatically.
 
 ### Why Vanilla HTML/CSS/JS?
 

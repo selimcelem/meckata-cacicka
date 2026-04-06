@@ -14,7 +14,7 @@
 - Client selects available date/time slot on Workshops page
 - Submits name, email, phone
 - Booking saved to DynamoDB with status `PENDING`
-- Owner (Terka) receives email with 3 action links: ACCEPT, SUGGEST NEW TIME, DECLINE
+- The owner receives email with 3 action links: ACCEPT, SUGGEST NEW TIME, DECLINE
 
 ### Step 2a -- Owner Accepts
 - Client receives confirmation email with date/time + .ics calendar invite

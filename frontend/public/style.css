@@ -1092,7 +1092,7 @@ input, textarea, select {
   box-shadow: var(--shadow-md);
 }
 
-.about-story__photo--terka {
+.about-story__photo--owner {
   background: linear-gradient(135deg, var(--color-terracotta) 0%, var(--color-clay) 100%);
 }
 
