@@ -17,7 +17,6 @@ function getClient() {
 // Owner notification: new booking received with action buttons
 // ---------------------------------------------------------------------------
 async function sendBookingNotification(ownerEmail, booking, actionLinks) {
-  const resend = getClient();
   const { date, time_slot, name, email, phone } = booking;
 
   const html = `
@@ -43,7 +42,7 @@ async function sendBookingNotification(ownerEmail, booking, actionLinks) {
 </body>
 </html>`;
 
-  await resend.emails.send({
+  await sendEmail({
     from: FROM_ADDRESS,
     to: ownerEmail,
     subject: `New booking request: ${name} on ${date} at ${time_slot}`,
@@ -55,7 +54,6 @@ async function sendBookingNotification(ownerEmail, booking, actionLinks) {
 // Booking acknowledgement sent to client immediately on submission (PENDING)
 // ---------------------------------------------------------------------------
 async function sendBookingAcknowledgement(clientEmail, booking) {
-  const resend = getClient();
   const { date, time_slot, name } = booking;
 
   const html = `
@@ -78,7 +76,7 @@ async function sendBookingAcknowledgement(clientEmail, booking) {
 </body>
 </html>`;
 
-  await resend.emails.send({
+  await sendEmail({
     from: FROM_ADDRESS,
     to: clientEmail,
     subject: `Booking request received: ${date} at ${time_slot}`,
@@ -90,7 +88,6 @@ async function sendBookingAcknowledgement(clientEmail, booking) {
 // Booking confirmation sent to client (with optional .ics attachment)
 // ---------------------------------------------------------------------------
 async function sendBookingConfirmation(recipientEmail, booking, icsContent) {
-  const resend = getClient();
   const { date, time_slot, name } = booking;
 
   const html = `
@@ -131,14 +128,13 @@ async function sendBookingConfirmation(recipientEmail, booking, icsContent) {
     ];
   }
 
-  await resend.emails.send(params);
+  await sendEmail(params);
 }
 
 // ---------------------------------------------------------------------------
 // Reschedule proposal sent to client with accept/decline buttons
 // ---------------------------------------------------------------------------
 async function sendRescheduleProposal(clientEmail, booking, newDate, newTime, responseLinks) {
-  const resend = getClient();
   const { name, date, time_slot } = booking;
 
   const html = `
@@ -164,7 +160,7 @@ async function sendRescheduleProposal(clientEmail, booking, newDate, newTime, re
 </body>
 </html>`;
 
-  await resend.emails.send({
+  await sendEmail({
     from: FROM_ADDRESS,
     to: clientEmail,
     subject: `New time suggested for your pottery workshop`,
@@ -176,7 +172,6 @@ async function sendRescheduleProposal(clientEmail, booking, newDate, newTime, re
 // Manual contact notification sent to owner (booking requires follow-up)
 // ---------------------------------------------------------------------------
 async function sendManualContactNotification(ownerEmail, booking) {
-  const resend = getClient();
   const { date, time_slot, name, email, phone } = booking;
 
   const html = `
@@ -198,7 +193,7 @@ async function sendManualContactNotification(ownerEmail, booking) {
 </body>
 </html>`;
 
-  await resend.emails.send({
+  await sendEmail({
     from: FROM_ADDRESS,
     to: ownerEmail,
     subject: `Action needed: contact ${name} about their booking`,
@@ -210,8 +205,6 @@ async function sendManualContactNotification(ownerEmail, booking) {
 // Decline notification sent to client
 // ---------------------------------------------------------------------------
 async function sendClientDeclineNotification(clientEmail) {
-  const resend = getClient();
-
   const html = `
 <!DOCTYPE html>
 <html>
@@ -226,7 +219,7 @@ async function sendClientDeclineNotification(clientEmail) {
 </body>
 </html>`;
 
-  await resend.emails.send({
+  await sendEmail({
     from: FROM_ADDRESS,
     to: clientEmail,
     subject: "Regarding your pottery workshop booking",
@@ -238,8 +231,7 @@ async function sendClientDeclineNotification(clientEmail) {
 // Plain text email
 // ---------------------------------------------------------------------------
 async function sendPlainEmail(to, subject, text) {
-  const resend = getClient();
-  await resend.emails.send({
+  await sendEmail({
     from: FROM_ADDRESS,
     to,
     subject,
@@ -251,7 +243,6 @@ async function sendPlainEmail(to, subject, text) {
 // Confirmation to owner that reschedule suggestion was sent
 // ---------------------------------------------------------------------------
 async function sendSuggestionSentConfirmation(ownerEmail, booking, newDate, newTime) {
-  const resend = getClient();
   const { name, date, time_slot } = booking;
 
   const html = `
@@ -271,12 +262,24 @@ async function sendSuggestionSentConfirmation(ownerEmail, booking, newDate, newT
 </body>
 </html>`;
 
-  await resend.emails.send({
+  await sendEmail({
     from: FROM_ADDRESS,
     to: ownerEmail,
     subject: `Reschedule suggestion sent to ${name}`,
     html,
   });
+}
+
+// ---------------------------------------------------------------------------
+// Resend send wrapper — Resend SDK v4 returns { data, error } instead of throwing
+// ---------------------------------------------------------------------------
+async function sendEmail(params) {
+  const resend = getClient();
+  const { data, error } = await resend.emails.send(params);
+  if (error) {
+    throw new Error(`Resend API error: ${error.message} (${error.name})`);
+  }
+  return data;
 }
 
 // ---------------------------------------------------------------------------

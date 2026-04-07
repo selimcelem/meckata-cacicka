@@ -3,7 +3,7 @@
    ============================================ */
 
 // API endpoint - will be overridden in deployment
-window.API_ENDPOINT = window.API_ENDPOINT || '';
+window.API_ENDPOINT = window.API_ENDPOINT || 'https://amy3wmuiud.execute-api.eu-central-1.amazonaws.com/prod';
 
 /* ---------- Language Toggle ---------- */
 const LangManager = {
