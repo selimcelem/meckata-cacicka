@@ -12,6 +12,7 @@ const { v4: uuidv4 } = require("uuid");
 const { generateIcs } = require("./ics");
 const {
   sendBookingNotification,
+  sendBookingAcknowledgement,
   sendBookingConfirmation,
   sendRescheduleProposal,
   sendManualContactNotification,
@@ -334,7 +335,7 @@ async function handlePostBooking(event) {
   try {
     await Promise.all([
       sendBookingNotification(OWNER_EMAIL, item, actionLinks),
-      sendBookingConfirmation(email, item, null),
+      sendBookingAcknowledgement(email, item),
     ]);
   } catch (emailErr) {
     console.error("Email sending failed:", emailErr);

@@ -428,8 +428,7 @@ const BookingCalendar = {
       email: email,
       phone: phone,
       date: dateStr,
-      time: this.selectedTime,
-      timezone: 'Europe/Prague'
+      time_slot: this.selectedTime
     };
 
     // Submit button loading state
@@ -446,16 +445,29 @@ const BookingCalendar = {
       });
 
       if (response.ok) {
-        this.showMessage(msgEl, 'success', lang === 'cs'
-          ? 'Rezervace byla uspesne odeslana! Potvrzeni obdrzite na email.'
-          : 'Booking submitted successfully! You will receive a confirmation email.');
         form.reset();
         this.selectedDate = null;
         this.selectedTime = null;
         this.render();
+        this.showMessage(msgEl, 'success', lang === 'cs'
+          ? 'Rezervace byla uspesne odeslana! Potvrzeni obdrzite na email.'
+          : 'Booking submitted successfully! You will receive a confirmation email.');
+        setTimeout(() => {
+          if (msgEl) {
+            msgEl.className = 'booking-message';
+            msgEl.textContent = '';
+          }
+        }, 5000);
       } else {
         const data = await response.json().catch(() => ({}));
-        const errMsg = data.message || (lang === 'cs' ? 'Nastala chyba pri odeslani.' : 'An error occurred.');
+        let errMsg;
+        if (response.status === 409) {
+          errMsg = lang === 'cs'
+            ? 'Tento termin je jiz obsazen. Zvolte prosim jiny cas.'
+            : 'This time slot is already booked. Please choose a different time.';
+        } else {
+          errMsg = data.error || data.message || (lang === 'cs' ? 'Nastala chyba pri odeslani.' : 'An error occurred.');
+        }
         this.showMessage(msgEl, 'error', errMsg);
       }
     } catch (err) {

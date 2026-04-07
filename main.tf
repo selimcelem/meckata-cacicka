@@ -59,5 +59,4 @@ module "api" {
   resend_api_key      = var.resend_api_key
   bookings_table_name = module.database.bookings_table_name
   bookings_table_arn  = module.database.bookings_table_arn
-  api_domain          = module.hosting.cloudfront_domain
 }

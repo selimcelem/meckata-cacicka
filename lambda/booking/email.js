@@ -52,6 +52,41 @@ async function sendBookingNotification(ownerEmail, booking, actionLinks) {
 }
 
 // ---------------------------------------------------------------------------
+// Booking acknowledgement sent to client immediately on submission (PENDING)
+// ---------------------------------------------------------------------------
+async function sendBookingAcknowledgement(clientEmail, booking) {
+  const resend = getClient();
+  const { date, time_slot, name } = booking;
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="font-family: Georgia, serif; background: #faf6f1; padding: 24px; color: #3e2c1c;">
+  <div style="max-width: 560px; margin: 0 auto; background: #fff; border-radius: 12px; padding: 32px; border: 1px solid #e0d5c7;">
+    <h2 style="color: #6b4226; margin-top: 0;">Booking Request Received</h2>
+    <p>Dear ${esc(name)},</p>
+    <p>Thank you for your interest in our pottery workshop! We have received your booking request and will review it shortly.</p>
+    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+      <tr><td style="padding: 8px 0; color: #8a7560; width: 100px;">Date</td><td style="padding: 8px 0; font-weight: bold;">${esc(date)}</td></tr>
+      <tr><td style="padding: 8px 0; color: #8a7560;">Time</td><td style="padding: 8px 0; font-weight: bold;">${esc(time_slot)}</td></tr>
+      <tr><td style="padding: 8px 0; color: #8a7560;">Duration</td><td style="padding: 8px 0;">90 minutes</td></tr>
+    </table>
+    <p>You will receive a confirmation email once your booking has been approved.</p>
+    <p style="color: #8a7560; font-size: 14px; margin-top: 24px;">Meckata Cacicka</p>
+  </div>
+</body>
+</html>`;
+
+  await resend.emails.send({
+    from: FROM_ADDRESS,
+    to: clientEmail,
+    subject: `Booking request received: ${date} at ${time_slot}`,
+    html,
+  });
+}
+
+// ---------------------------------------------------------------------------
 // Booking confirmation sent to client (with optional .ics attachment)
 // ---------------------------------------------------------------------------
 async function sendBookingConfirmation(recipientEmail, booking, icsContent) {
@@ -258,6 +293,7 @@ function esc(str) {
 
 module.exports = {
   sendBookingNotification,
+  sendBookingAcknowledgement,
   sendBookingConfirmation,
   sendRescheduleProposal,
   sendManualContactNotification,

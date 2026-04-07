@@ -20,10 +20,6 @@ variable "bookings_table_arn" {
   type = string
 }
 
-variable "api_domain" {
-  type = string
-}
-
 # --- IAM Role ---
 
 resource "aws_iam_role" "lambda" {
@@ -75,6 +71,8 @@ resource "aws_iam_role_policy" "lambda" {
   })
 }
 
+data "aws_region" "current" {}
+
 # --- Lambda Function ---
 
 data "archive_file" "lambda" {
@@ -99,7 +97,7 @@ resource "aws_lambda_function" "booking" {
       TABLE_NAME     = var.bookings_table_name
       OWNER_EMAIL    = var.owner_email
       RESEND_API_KEY = var.resend_api_key
-      API_DOMAIN     = var.api_domain
+      API_DOMAIN     = "${aws_api_gateway_rest_api.api.id}.execute-api.${data.aws_region.current.name}.amazonaws.com"
     }
   }
 }
