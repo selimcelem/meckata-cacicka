@@ -140,17 +140,9 @@ const BookingCalendar = {
   currentMonth: null,
   selectedDate: null,
   selectedTime: null,
-
-  // Available time slots by day of week (0=Sunday, 6=Saturday)
-  slotsByDay: {
-    0: ['10:00', '13:00', '15:00'],       // Sunday
-    1: ['17:00', '18:30'],                  // Monday
-    2: ['17:00', '18:30'],                  // Tuesday
-    3: ['17:00', '18:30'],                  // Wednesday
-    4: ['17:00', '18:30'],                  // Thursday
-    5: ['17:00', '18:30'],                  // Friday
-    6: ['10:00', '13:00', '15:00']          // Saturday
-  },
+  availability: {},       // { "2026-04-12": ["10:00","13:00"], ... } from API
+  availabilityMonth: null, // "2026-04" — which month is cached
+  loadingSlots: false,
 
   MONTH_NAMES_CS: [
     'Leden', 'Unor', 'Brezen', 'Duben', 'Kveten', 'Cerven',
@@ -183,7 +175,7 @@ const BookingCalendar = {
       }
       this.selectedDate = null;
       this.selectedTime = null;
-      this.render();
+      this.fetchAndRender();
     });
 
     document.getElementById('cal-next').addEventListener('click', () => {
@@ -194,7 +186,7 @@ const BookingCalendar = {
       }
       this.selectedDate = null;
       this.selectedTime = null;
-      this.render();
+      this.fetchAndRender();
     });
 
     // Bind booking form
@@ -203,6 +195,28 @@ const BookingCalendar = {
       form.addEventListener('submit', (e) => this.handleSubmit(e));
     }
 
+    this.fetchAndRender();
+  },
+
+  async fetchAndRender() {
+    const monthStr = `${this.currentYear}-${String(this.currentMonth + 1).padStart(2, '0')}`;
+    if (this.availabilityMonth !== monthStr) {
+      this.loadingSlots = true;
+      this.render();
+      try {
+        const res = await fetch(`${window.API_ENDPOINT}/slots?month=${monthStr}`);
+        if (res.ok) {
+          const data = await res.json();
+          this.availability = data.availability || {};
+        } else {
+          this.availability = {};
+        }
+      } catch {
+        this.availability = {};
+      }
+      this.availabilityMonth = monthStr;
+      this.loadingSlots = false;
+    }
     this.render();
   },
 
@@ -265,8 +279,9 @@ const BookingCalendar = {
         this.selectedDate.getMonth() === date.getMonth() &&
         this.selectedDate.getDate() === date.getDate();
 
-      const dow = date.getDay();
-      const hasSlots = this.slotsByDay[dow] && this.slotsByDay[dow].length > 0;
+      const dateKey = `${this.currentYear}-${String(this.currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+      const availableSlots = this.availability[dateKey];
+      const hasSlots = availableSlots && availableSlots.length > 0;
       const isAvailable = !isPast && hasSlots;
 
       let classes = 'calendar__day';
@@ -320,8 +335,8 @@ const BookingCalendar = {
 
     container.style.display = 'block';
 
-    const dow = this.selectedDate.getDay();
-    const slots = this.slotsByDay[dow] || [];
+    const dateKey = `${this.selectedDate.getFullYear()}-${String(this.selectedDate.getMonth() + 1).padStart(2, '0')}-${String(this.selectedDate.getDate()).padStart(2, '0')}`;
+    const slots = this.availability[dateKey] || [];
 
     const titleEl = container.querySelector('.timeslots__title');
     if (titleEl) {
@@ -428,7 +443,8 @@ const BookingCalendar = {
       email: email,
       phone: phone,
       date: dateStr,
-      time_slot: this.selectedTime
+      time_slot: this.selectedTime,
+      lang: LangManager.current()
     };
 
     // Submit button loading state
@@ -448,7 +464,8 @@ const BookingCalendar = {
         form.reset();
         this.selectedDate = null;
         this.selectedTime = null;
-        this.render();
+        this.availabilityMonth = null;
+        await this.fetchAndRender();
         this.showMessage(msgEl, 'success', lang === 'cs'
           ? 'Rezervace byla uspesne odeslana! Potvrzeni obdrzite na email.'
           : 'Booking submitted successfully! You will receive a confirmation email.');
