@@ -14,19 +14,16 @@ terraform {
     region         = "eu-central-1"
     dynamodb_table = "meckata-cacicka-terraform-lock"
     encrypt        = true
-    profile        = "meckata-cacicka"
   }
 }
 
 provider "aws" {
-  region  = var.aws_region
-  profile = "meckata-cacicka"
+  region = var.aws_region
 }
 
 provider "aws" {
-  alias   = "us_east_1"
-  region  = "us-east-1"
-  profile = "meckata-cacicka"
+  alias  = "us_east_1"
+  region = "us-east-1"
 }
 
 module "hosting" {
