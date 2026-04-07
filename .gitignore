@@ -29,6 +29,15 @@ Thumbs.db
 *.swp
 
 # Claude Code
+.claude/
 CLAUDE.md
 TASKS.md
 PROJECT_BRIEF.md
+
+# Scripts
+launch.ps1
+
+# Test artifacts
+lambda-*.json
+ack-*.json
+tfplan
