@@ -348,20 +348,24 @@ input, textarea, select {
     display: flex;
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: 80%;
     max-width: 320px;
     height: 100vh;
     background-color: var(--color-cream);
     flex-direction: column;
     padding: 6rem 2rem 2rem;
-    transition: right var(--transition);
+    transform: translateX(100%);
+    transition: transform var(--transition), visibility 0s linear var(--transition);
+    visibility: hidden;
     box-shadow: var(--shadow-lg);
     z-index: 1000;
   }
 
   .navbar__menu.open {
-    right: 0;
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform var(--transition), visibility 0s linear 0s;
   }
 
   .navbar__links {
