@@ -530,6 +530,85 @@ const BookingCalendar = {
   }
 };
 
+/* ---------- Gallery Lightbox ---------- */
+const GalleryLightbox = {
+  init() {
+    this.lightbox = document.getElementById('lightbox');
+    if (!this.lightbox) return;
+
+    this.items = Array.from(document.querySelectorAll('.gallery__item'));
+    this.images = this.items.map(item => item.querySelector('img')).filter(Boolean);
+    if (this.images.length === 0) return;
+
+    this.imgEl = this.lightbox.querySelector('.lightbox__image');
+    this.closeBtn = this.lightbox.querySelector('.lightbox__close');
+    this.prevBtn = this.lightbox.querySelector('.lightbox__prev');
+    this.nextBtn = this.lightbox.querySelector('.lightbox__next');
+    this.currentIndex = 0;
+
+    this.images.forEach((img, i) => {
+      const trigger = img.parentElement || img;
+      trigger.setAttribute('role', 'button');
+      trigger.setAttribute('tabindex', '0');
+      trigger.addEventListener('click', () => this.open(i));
+      trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.open(i);
+        }
+      });
+    });
+
+    this.closeBtn.addEventListener('click', (e) => { e.stopPropagation(); this.close(); });
+    this.prevBtn.addEventListener('click', (e) => { e.stopPropagation(); this.prev(); });
+    this.nextBtn.addEventListener('click', (e) => { e.stopPropagation(); this.next(); });
+
+    this.lightbox.addEventListener('click', (e) => {
+      if (e.target === this.lightbox) this.close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!this.lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') this.close();
+      else if (e.key === 'ArrowLeft') this.prev();
+      else if (e.key === 'ArrowRight') this.next();
+    });
+  },
+
+  open(index) {
+    this.currentIndex = index;
+    this.render();
+    this.lightbox.classList.add('open');
+    this.lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    this.closeBtn.focus();
+  },
+
+  close() {
+    this.lightbox.classList.remove('open');
+    this.lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    const trigger = this.items[this.currentIndex];
+    if (trigger && typeof trigger.focus === 'function') trigger.focus();
+  },
+
+  prev() {
+    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+    this.render();
+  },
+
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.images.length;
+    this.render();
+  },
+
+  render() {
+    const img = this.images[this.currentIndex];
+    this.imgEl.src = img.src;
+    this.imgEl.alt = img.alt || '';
+  }
+};
+
 /* ---------- Contact Form ---------- */
 const ContactForm = {
   init() {
@@ -611,4 +690,5 @@ document.addEventListener('DOMContentLoaded', () => {
   ScrollAnimations.init();
   BookingCalendar.init();
   ContactForm.init();
+  GalleryLightbox.init();
 });

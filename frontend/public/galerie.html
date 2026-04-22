@@ -51,52 +51,28 @@
     <div class="container">
       <div class="gallery__grid">
         <div class="gallery__item fade-in">
-          <div class="gallery__placeholder gallery__placeholder--1">
-            <span class="gallery__placeholder-icon">&#127843;</span>
-            <span data-lang-cs="Ručně točená miska" data-lang-en="Hand-thrown bowl">Ručně točená miska</span>
-          </div>
+          <img src="assets/Hand-thrown%20bowl.jpg" alt="Ručně točená miska" class="gallery__image" loading="lazy">
         </div>
         <div class="gallery__item fade-in">
-          <div class="gallery__placeholder gallery__placeholder--2">
-            <span class="gallery__placeholder-icon">&#9749;</span>
-            <span data-lang-cs="Keramický hrnek" data-lang-en="Ceramic mug">Keramický hrnek</span>
-          </div>
+          <img src="assets/Ceramic%20mug.jpg" alt="Keramický hrnek" class="gallery__image" loading="lazy">
         </div>
         <div class="gallery__item fade-in">
-          <div class="gallery__placeholder gallery__placeholder--3">
-            <span class="gallery__placeholder-icon">&#127807;</span>
-            <span data-lang-cs="Květináč s glazurou" data-lang-en="Glazed planter">Květináč s glazurou</span>
-          </div>
+          <img src="assets/Glazed%20planter.jpg" alt="Květináč s glazurou" class="gallery__image" loading="lazy">
         </div>
         <div class="gallery__item fade-in">
-          <div class="gallery__placeholder gallery__placeholder--4">
-            <span class="gallery__placeholder-icon">&#127858;</span>
-            <span data-lang-cs="Talíř s dekorem" data-lang-en="Decorated plate">Talíř s dekorem</span>
-          </div>
+          <img src="assets/decorated%20plate.jpg" alt="Talíř s dekorem" class="gallery__image" loading="lazy">
         </div>
         <div class="gallery__item fade-in">
-          <div class="gallery__placeholder gallery__placeholder--5">
-            <span class="gallery__placeholder-icon">&#127912;</span>
-            <span data-lang-cs="Váza z workshopu" data-lang-en="Workshop vase">Váza z workshopu</span>
-          </div>
+          <img src="assets/Workshop%20vase.jpg" alt="Váza z workshopu" class="gallery__image" loading="lazy">
         </div>
         <div class="gallery__item fade-in">
-          <div class="gallery__placeholder gallery__placeholder--6">
-            <span class="gallery__placeholder-icon">&#128156;</span>
-            <span data-lang-cs="Dekorativní srdíčko" data-lang-en="Decorative heart">Dekorativní srdíčko</span>
-          </div>
+          <img src="assets/Decorative%20heart.jpg" alt="Dekorativní srdíčko" class="gallery__image" loading="lazy">
         </div>
         <div class="gallery__item fade-in">
-          <div class="gallery__placeholder gallery__placeholder--7">
-            <span class="gallery__placeholder-icon">&#127858;</span>
-            <span data-lang-cs="Sada misek" data-lang-en="Bowl set">Sada misek</span>
-          </div>
+          <img src="assets/Bowl%20set.jpg" alt="Sada misek" class="gallery__image" loading="lazy">
         </div>
         <div class="gallery__item fade-in">
-          <div class="gallery__placeholder gallery__placeholder--8">
-            <span class="gallery__placeholder-icon">&#9734;</span>
-            <span data-lang-cs="Zahradní keramika" data-lang-en="Garden ceramics">Zahradní keramika</span>
-          </div>
+          <img src="assets/Garden%20ceramics.jpg" alt="Zahradní keramika" class="gallery__image" loading="lazy">
         </div>
       </div>
     </div>
@@ -123,6 +99,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <button type="button" class="lightbox__btn lightbox__close" aria-label="Zavřít" data-lang-aria-cs="Zavřít" data-lang-aria-en="Close">&times;</button>
+    <button type="button" class="lightbox__btn lightbox__prev" aria-label="Předchozí" data-lang-aria-cs="Předchozí" data-lang-aria-en="Previous">&#10094;</button>
+    <img class="lightbox__image" src="" alt="">
+    <button type="button" class="lightbox__btn lightbox__next" aria-label="Další" data-lang-aria-cs="Další" data-lang-aria-en="Next">&#10095;</button>
+  </div>
 
   <script src="main.js"></script>
 </body>
