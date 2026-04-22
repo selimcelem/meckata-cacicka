@@ -41,3 +41,6 @@ launch.ps1
 lambda-*.json
 ack-*.json
 tfplan
+
+# Frontend image assets (managed out-of-band; deployed directly to S3)
+frontend/public/assets/
